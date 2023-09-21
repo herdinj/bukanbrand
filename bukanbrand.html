@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BUKANBRAND</title>
+    <style>
+      body {
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+      }
+
+      #hacker-text {
+        color: gray; /* Warna teks abu-abu */
+        font-family: 'Courier New', monospace;
+        font-size: 24px;
+        text-align: center;
+      }
+    </style>
+    <script>
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+<>?:{}[]|';
+      const targetText = 'BUKANBRAND';
+
+      function getRandomCharacter() {
+        return characters[Math.floor(Math.random() * characters.length)];
+      }
+
+      function generateRandomText(length) {
+        let randomText = '';
+        for (let i = 0; i < length; i++) {
+          randomText += getRandomCharacter();
+        }
+        return randomText;
+      }
+
+      function startHackerEffect() {
+        let text = generateRandomText(targetText.length);
+        document.getElementById('hacker-text').innerHTML = text;
+        setTimeout(() => {
+          document.getElementById('hacker-text').innerHTML = targetText;
+        }, 3000); // Ganti 3000 dengan durasi yang Anda inginkan (dalam milidetik)
+      }
+
+      window.onload = startHackerEffect;
+    </script>
+  </head>
+  <body>
+    <div id="hacker-text"></div>
+  </body>
+</html>
